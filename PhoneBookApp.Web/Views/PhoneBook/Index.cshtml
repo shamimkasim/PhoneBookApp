@@ -1,0 +1,31 @@
+﻿@model PhoneBookApp.Domain.Entities.PhoneBookEntry
+
+@{
+    ViewData["Title"] = "Phone Book";
+}
+
+<h1>Phone Book</h1>
+
+@if (!string.IsNullOrEmpty(ViewBag.Message))
+{
+    <div class="alert alert-info">@ViewBag.Message</div>
+}
+
+<form asp-controller="PhoneBook" asp-action="Index" method="get">
+    <div class="form-group">
+        <label for="personName">Person's Name:</label>
+        <input type="text" name="personName" class="form-control" id="personName" />
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+@if (Model != null)
+{
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Person Details</h5>
+            <p class="card-text"><strong>Name:</strong> @Model.PersonName</p>
+            <p class="card-text"><strong>Phone Number:</strong> @Model.PhoneNumber</p>
+        </div>
+    </div>
+}

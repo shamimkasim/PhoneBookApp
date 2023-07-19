@@ -1,0 +1,12 @@
+﻿@{
+    var errorMessage = ViewData["ErrorMessage"] as string;
+}
+
+@if (!string.IsNullOrEmpty(errorMessage))
+{
+    <p>Error Message: @errorMessage</p>
+}
+else
+{
+    <p>An error occurred.</p>
+}
