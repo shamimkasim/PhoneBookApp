@@ -18,7 +18,8 @@ namespace PhoneBookApp.WebApi
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            builder.Services.AddSingleton<IPhoneBookRepository>(serviceProvider =>
+            builder.Services.AddSingleton<List<PhoneBookEntry>>(serviceProvider =>
+
             {
                 var phoneBookEntries = new List<PhoneBookEntry>
                 {
@@ -31,10 +32,12 @@ namespace PhoneBookApp.WebApi
                     
                 };
 
-                return new PhoneBookRepository(phoneBookEntries);
+                return phoneBookEntries;
             });
 
             builder.Services.AddScoped<IPhoneBookService, PhoneBookService>();
+            builder.Services.AddScoped<IPhoneBookRepository, PhoneBookRepository>();
+
 
             builder.Services.AddControllers();
 

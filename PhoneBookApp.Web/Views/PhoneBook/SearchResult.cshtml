@@ -1,0 +1,13 @@
+﻿@model PhoneBookApp.Domain.Entities.PhoneBookEntry
+
+<h1>Search Result</h1>
+
+@if (Model != null)
+{
+    <p>Person's Name: @Model.PersonName</p>
+    <p>Phone Number: @Model.PhoneNumber</p>
+}
+else
+{
+    <p>@ViewBag.Message</p>
+}

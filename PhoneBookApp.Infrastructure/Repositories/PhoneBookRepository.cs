@@ -21,6 +21,10 @@ namespace PhoneBookApp.Infrastructure.Repositories
             }
             return phoneBookEntry;
         }
+        public IEnumerable<PhoneBookEntry> GetPhoneBookEntries()
+        {
+            return _phoneBookEntries;
+        }
 
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PhoneBookApp.Application.Interfaces;
+using PhoneBookApp.Application.Services;
 
 namespace PhoneBookApp.WebApi.Controllers
 {
@@ -13,7 +14,12 @@ namespace PhoneBookApp.WebApi.Controllers
         {
             this.phoneBookService = phoneBookService;
         }
-
+        [HttpGet]
+        public IActionResult GetAllEntries()
+        {
+            var entries = phoneBookService.GetAllEntries();
+            return Ok(entries);
+        }
         [HttpGet("{personName}")]
         public IActionResult GetPhoneNumberByPersonName(string personName)
         {

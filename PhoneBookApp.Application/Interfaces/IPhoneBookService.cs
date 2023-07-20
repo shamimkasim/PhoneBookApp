@@ -4,6 +4,7 @@ namespace PhoneBookApp.Application.Interfaces
 {
     public interface IPhoneBookService
     {
+        IEnumerable<PhoneBookEntry> GetAllEntries();
         PhoneBookEntry GetPhoneNumberByPersonName(string personName);       
     }
 }

@@ -14,6 +14,10 @@ namespace PhoneBookApp.Application.Services
         public PhoneBookEntry GetPhoneNumberByPersonName(string personName)
         {
             return _phoneBookRepository.GetPhoneNumberByPersonName(personName);
-        }        
+        }
+        public IEnumerable<PhoneBookEntry> GetAllEntries()
+        {
+            return _phoneBookRepository.GetPhoneBookEntries();
+        }
     }
 }
